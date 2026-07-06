@@ -1,119 +1,175 @@
-# NBA Rookie Success Model
+<p align="center">
+  <img src="assets/banner.png" width="100%">
+</p>
 
-## Project Overview
+# 🏀 Beyond the Box Score
 
-This project uses NBA draft history, college production, and physical profile data to predict whether a drafted player becomes a successful NBA player.
+### Predicting NBA Career Success Using Pre-Draft College Performance
 
-Success is defined as:
+---
 
-**Career Win Shares >= 10**
+# 🚀 Live Dashboard
 
-The goal is to evaluate whether pre-draft information can help identify future NBA contributors.
+### 👉 Explore the interactive dashboard here:
+
+https://yfazp7-danny-thompson.shinyapps.io/nba-rookie-success-model/
+
+## Dashboard Preview
+
+![Dashboard Preview](assets/dashboard_preview.png)
+
+---
+
+## Executive Summary
+
+This project develops an end-to-end predictive analytics model that estimates the probability of NBA career success using only information available before the NBA Draft.
+
+Using historical NBA Draft, college basketball, and physical measurement data, the model predicts whether a player will reach **10 or more Career Win Shares**, providing a quantitative framework for evaluating draft prospects.
+
+The project also includes an interactive Shiny dashboard that allows users to explore player projections, model outputs, and visualizations.
+
+---
 
 ## Research Question
 
-Can college production, draft position, age, height, and weight predict NBA career success?
+Can pre-draft information—including college production, draft position, age, height, and weight—predict long-term NBA success?
+
+---
 
 ## Data Sources
 
-The project uses three data sources:
+- NBA Draft History
+- NCAA College Statistics
+- RealGM Draft Combine Measurements
 
-1. NBA Draft data  
-2. College basketball production data  
-3. RealGM draft measurements  
+**Final Dataset**
 
-The final modeling dataset includes 382 NBA draft picks from 2012 through 2020.
+- 382 NBA Draft Picks
+- 2012–2020 NBA Drafts
+
+---
 
 ## Methodology
 
-The workflow includes:
-
-1. Import draft, college, and physical measurement data
-2. Clean and standardize player names
-3. Merge datasets by player, draft year, and draft pick
+1. Import and clean multiple basketball datasets
+2. Standardize player names
+3. Merge draft, college, and measurement data
 4. Engineer basketball-specific features
 5. Train a logistic regression model
 6. Evaluate model performance
-7. Export results and visualizations
+7. Build an interactive Shiny dashboard
 
-## Model
+---
 
-The final model uses logistic regression.
+## Model Variables
 
-Predictors include:
+The final model includes:
 
-- Draft pick
-- Draft age
+- Draft Pick
+- Draft Age
 - Height
 - Weight
-- Points per game
-- Rebounds per game
-- Assists per game
-- Steals per game
-- Blocks per game
-- Assist-to-turnover ratio
-- College true shooting percentage
+- Points Per Game
+- Rebounds Per Game
+- Assists Per Game
+- Steals Per Game
+- Blocks Per Game
+- Assist-to-Turnover Ratio
+- College True Shooting Percentage
 
-## Model Performance
+---
+
+# Model Performance
 
 | Metric | Result |
-|---|---:|
-| Accuracy | 73.3% |
-| Precision | 70.9% |
-| Recall | 70.9% |
-| ROC AUC | 0.791 |
-| AIC | 444.69 |
+|---------|-------:|
+| Accuracy | **73.3%** |
+| Precision | **70.9%** |
+| Recall | **70.9%** |
+| ROC AUC | **0.791** |
+| AIC | **444.69** |
 
-## Key Findings
+---
+
+# Interactive Dashboard
+
+The project includes a fully interactive Shiny dashboard featuring:
+
+- Player Lookup
+- NBA Success Score
+- Probability of Success
+- Career Win Shares
+- Interactive Leaderboard
+- Model Explanations
+- Project Visualizations
+
+---
+
+# Visualizations
+
+## Top 20 NBA Success Scores
+
+![Top 20](outputs/figures/top_20_success_scores.png)
+
+## Draft Pick vs Success Score
+
+![Draft Pick](outputs/figures/draft_pick_vs_success_score.png)
+
+## Probability vs Career Win Shares
+
+![Probability](outputs/figures/probability_vs_win_shares.png)
+
+## Success Score Distribution
+
+![Distribution](outputs/figures/success_score_distribution.png)
+
+## Biggest Model Misses
+
+![Misses](outputs/figures/biggest_model_misses.png)
+
+---
+
+# Key Findings
 
 - Draft position was the strongest predictor of NBA success.
-- Assist-to-turnover ratio was the most consistent college performance indicator.
-- Adding too many engineered features increased multicollinearity and reduced interpretability.
-- The final model balanced performance, simplicity, and basketball interpretability.
+- Assist-to-turnover ratio was the strongest college performance metric.
+- Simpler models outperformed more complex feature sets.
+- Logistic regression provided strong interpretability while maintaining predictive performance.
 
-## Visualizations
+---
 
-### Top 20 NBA Success Scores
+# Limitations
 
-![Top 20 NBA Success Scores](outputs/figures/top_20_success_scores.png)
+The model intentionally uses only pre-draft information and does not account for:
 
-### Draft Pick vs NBA Success Score
+- Injuries
+- Team fit
+- Coaching
+- Player development
+- Role changes
+- Off-court factors
 
-![Draft Pick vs NBA Success Score](outputs/figures/draft_pick_vs_success_score.png)
+---
 
-### Predicted Probability vs Career Win Shares
+# Future Work
 
-![Predicted Probability vs Career Win Shares](outputs/figures/probability_vs_win_shares.png)
+- Evaluate the 2026 NBA Draft Class
+- Historical player comparisons
+- Prospect similarity scores
+- Career Win Shares regression model
+- Expanded Shiny dashboard features
 
-### NBA Success Score Distribution
+---
 
-![NBA Success Score Distribution](outputs/figures/success_score_distribution.png)
-
-### Biggest Model Misses
-
-![Biggest Model Misses](outputs/figures/biggest_model_misses.png)
-
-## Limitations
-
-This model uses only pre-draft information. It does not account for injuries, team fit, coaching, player development, role changes, or off-court factors after the draft.
-
-## Future Improvements
-
-Future versions could include:
-
-- Advanced college metrics such as usage rate and assist percentage
-- Multi-class career outcome tiers
-- Career Win Shares regression
-- Train/test validation by draft year
-- Interactive Shiny dashboard
-
-## Tools Used
+# Tools Used
 
 - R
+- Shiny
 - dplyr
-- readxl
 - ggplot2
+- readxl
 - broom
 - yardstick
 - pROC
+- DT
 - writexl
