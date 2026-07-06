@@ -37,6 +37,11 @@ ui <- fluidPage(
           p("This dashboard explores an NBA Rookie Success Model built using pre-draft information from NBA draft picks between 2012 and 2020."),
           p("The model estimates the probability that a player becomes a successful NBA player, defined as reaching at least 10 Career Win Shares."),
           p("Inputs include draft position, draft age, height, weight, college production, assist-to-turnover ratio, and true shooting percentage.")
+      ),
+      div(class = "card",
+          p("Created by Danny Thompson"),
+          p("Basketball Analytics Portfolio Project"),
+          p("GitHub: DannyTData")
       )
     ),
     
